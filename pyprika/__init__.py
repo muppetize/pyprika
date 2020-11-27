@@ -38,7 +38,7 @@ def load(fp, loader=None, **kw):
     """
     loader = loader or yaml.load
     try:
-        d = loader(fp)
+        d = loader.load(fp, Loader=yaml.FullLoader)
         if isinstance(d, (tuple, list)):
             return [Recipe.from_dict(x) for x in d]
         elif isinstance(d, dict):
