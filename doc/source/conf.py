@@ -15,7 +15,9 @@ import sys, os, imp
 PROJECT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__),
                               os.path.pardir,
                               os.path.pardir))
-execfile(os.path.join(PROJECT_DIR, 'pyprika', 'version.py'))
+with os.path.join(PROJECT_DIR, 'pyprika', 'version.py') as version_py:
+    exec(verion_py.read())
+
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
